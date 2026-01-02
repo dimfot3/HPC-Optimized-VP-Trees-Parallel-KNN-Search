@@ -1,13 +1,14 @@
-# K-NN-with-vantage-point-tree
+# HPC-Optimized VP-Trees & Parallel KNN Search
 
 ## Description
-This is the final project for Parallel and Distributed Systems subject of Department of Electrical and Computer Engineering in Aristotle University of Thessaloniki. The project had main goal the efficient implementation of Vantage-point-tree creation. This data structure is extremly useful in K-Nearest Neihbors algorithms, a classical problem in statistics and machine learning.
+The project benchmarks four distinct architectural approaches:
 
-In this repository we present a serial implementation, then we make a simple OpenMP implementation and a more complex one that change to sequential calculations where needed and limit the maximum number of threads that application creates. Then we try to extent our implementation using MPI alongside with OpenMP.
+* **Sequential (Baseline)**: A native C implementation using the Quickselect algorithm for median calculation and Euclidean distance for metric partitioning.
+* **Simple OpenMP**: Introduces shared-memory parallelism by offloading distance calculations and recursive subtree construction to multiple threads.
+* **Optimized OpenMP (Threshold-Limited)**: A sophisticated version that prevents thread explosion. It switches to sequential execution when the workload size ($N \times D$) falls below a specific threshold and caps parallel recursion levels to ensure optimal CPU utilization.
+* **Hybrid MPI + OpenMP**: A distributed-memory extension where the workload is split between compute nodes. The top-level partitioning is handled via MPI, while lower-level construction utilizes optimized multi-threading.
 
-Finally, we implement the KNN algorithm that searches in the Vantage-Point tree. 
-
-For all implementation we have made tests to verify correctness as explained in the report.
+The repository includes a highly efficient KNN search algorithm that traverses the VP-Tree using a **Priority Queue**. It minimizes distance calculations by pruning branches that fall outside the search radius, and it is further parallelized via a **Dynamic Scheduler** to maintain load balancing across points.
 
 ## How to build and run
 In order to build folow the instructions
