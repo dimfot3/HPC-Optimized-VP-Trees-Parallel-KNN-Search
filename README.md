@@ -23,7 +23,7 @@ ii. MPI with OpenMP version ``mpirun -np 2 main_program <data> 3 <limit of threa
 Alternativle to build and run some tests you can see the ``demo_script.sh`` inside the scripts folder. If you also have download the sample scripts inside the data folder,as mentioned below (after unzip you should move all the .dat inside the data folder), you can also execute the demo script.
 
 ## Datasets
-This project needs some nDimnensional points as input. The points should be stored in binary file, with points stacked sequential in float32 format. The first 2 floats are the number and the dimension of points. You can create several datasets like this format with scripts ``create_data.py`` and ``datasets.py`` in scripts folder. This scripts basicly create these points randomly using different  distributions like normal, uniform, expodential or using known datasets like MNIST.
+This project needs some nDimnensional points as input. The points should be stored in binary file, with points stacked sequential in float32 format. The first 2 floats are the number and the dimension of points. You can create several datasets like this format with scripts ``create_data.py`` and ``datasets.py`` in scripts folder. This scripts basicly create these points randomly using different  distributions like normal, uniform, expodential or using known datasets like MNIST. 
 
 Alternativly you can download some samples from the README.md inside the data folder.
 
